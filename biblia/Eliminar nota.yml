@@ -1,0 +1,16 @@
+info:
+  name: Eliminar nota
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: http://localhost:8081/api/notas/1
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
