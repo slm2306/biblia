@@ -36,7 +36,13 @@ public class NotaService {
                 .map(NotaDto::desde)
                 .toList();
     }
-
+    @Transactional(readOnly = true)
+    public List<NotaDto> listarPorCapitulo(String libro, Integer capitulo) {
+        return notaRepository.porCapitulo(libro, capitulo)
+                .stream()
+                .map(NotaDto::desde)
+                .toList();
+    }
     public NotaDto actualizar(Integer id, NotaActualizarDto dto) {
         Nota nota = notaRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "La nota no existe"));

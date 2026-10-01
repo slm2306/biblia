@@ -34,6 +34,10 @@ public class NotaController {
     public List<NotaDto> listar(@RequestParam Integer versiculoId) {
         return notaService.listarPorVersiculo(versiculoId);
     }
+    @GetMapping("/capitulo")
+    public List<NotaDto> listarPorCapitulo(@RequestParam String libro, @RequestParam Integer capitulo) {
+        return notaService.listarPorCapitulo(libro, capitulo);
+    }
 
     @PutMapping("/{id}")
     public NotaDto actualizar(@PathVariable Integer id, @Valid @RequestBody NotaActualizarDto dto) {
